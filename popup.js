@@ -107,6 +107,11 @@ function setupEventListeners() {
     });
   });
   
+  // Welcome button - shows alert with Welcome message
+  document.getElementById('welcomeBtn').addEventListener('click', () => {
+    alert('Welcome to Turbo Extension! 🚀\n\nBoost your browsing speed with intelligent optimizations.');
+  });
+  
   // Settings button
   document.getElementById('settingsBtn').addEventListener('click', () => {
     chrome.runtime.openOptionsPage();
