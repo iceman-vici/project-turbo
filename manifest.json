@@ -1,12 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Turbo",
+  "name": "Turbo - Dialpad Integration",
   "version": "1.0.0",
-  "description": "Turbo - Speed up your browsing experience",
+  "description": "Turbo - Automated calling with Dialpad CTI integration",
   "permissions": [
     "storage",
     "activeTab",
-    "tabs"
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://dialpad.com/*",
+    "https://*.dialpad.com/*"
   ],
   "action": {
     "default_popup": "popup.html"
@@ -15,6 +20,14 @@
     "service_worker": "background.js"
   },
   "content_scripts": [
+    {
+      "matches": [
+        "https://dialpad.com/*",
+        "https://*.dialpad.com/*"
+      ],
+      "js": ["dialpad-integration.js"],
+      "run_at": "document_end"
+    },
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
