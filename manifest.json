@@ -5,7 +5,8 @@
   "description": "Turbo - Speed up your browsing experience",
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
   "action": {
     "default_popup": "popup.html"
