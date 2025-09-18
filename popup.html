@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚡ Turbo</h1>
+      <p class="tagline">Accelerate your browsing</p>
+    </header>
+    
+    <div class="status-card">
+      <div class="status-indicator" id="statusIndicator">
+        <span class="status-dot active"></span>
+        <span class="status-text">Active</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-item">
+        <label class="switch">
+          <input type="checkbox" id="turboToggle" checked>
+          <span class="slider"></span>
+        </label>
+        <span>Enable Turbo Mode</span>
+      </div>
+      
+      <div class="control-item">
+        <label class="switch">
+          <input type="checkbox" id="cacheToggle" checked>
+          <span class="slider"></span>
+        </label>
+        <span>Smart Cache</span>
+      </div>
+      
+      <div class="control-item">
+        <label class="switch">
+          <input type="checkbox" id="preloadToggle">
+          <span class="slider"></span>
+        </label>
+        <span>Preload Links</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-value" id="pageSpeed">0ms</span>
+        <span class="stat-label">Load Time</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="dataSaved">0KB</span>
+        <span class="stat-label">Data Saved</span>
+      </div>
+    </div>
+
+    <button class="settings-btn" id="settingsBtn">
+      <span>⚙️</span> Settings
+    </button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
