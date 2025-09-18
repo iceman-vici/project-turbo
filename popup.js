@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Set toggle states
   document.getElementById('turboToggle').checked = settings.turboEnabled;
-  document.getElementById('cacheToggle').checked = settings.cacheEnabled;
-  document.getElementById('preloadToggle').checked = settings.preloadEnabled;
   
   // Update status indicator
   updateStatusIndicator(settings.turboEnabled);
@@ -23,8 +21,6 @@ async function loadSettings() {
   return new Promise((resolve) => {
     chrome.storage.sync.get({
       turboEnabled: true,
-      cacheEnabled: true,
-      preloadEnabled: false,
       stats: {
         avgLoadTime: 0,
         dataSaved: 0
@@ -87,29 +83,10 @@ function setupEventListeners() {
     });
   });
   
-  // Cache toggle
-  document.getElementById('cacheToggle').addEventListener('change', (e) => {
-    saveSettings({ cacheEnabled: e.target.checked });
-    
-    chrome.runtime.sendMessage({ 
-      action: 'toggleCache', 
-      enabled: e.target.checked 
-    });
-  });
-  
-  // Preload toggle
-  document.getElementById('preloadToggle').addEventListener('change', (e) => {
-    saveSettings({ preloadEnabled: e.target.checked });
-    
-    chrome.runtime.sendMessage({ 
-      action: 'togglePreload', 
-      enabled: e.target.checked 
-    });
-  });
-  
-  // Welcome button - shows alert with Welcome message
+  // Start Automated Call button - shows alert
   document.getElementById('welcomeBtn').addEventListener('click', () => {
-    alert('Welcome to Turbo Extension! 🚀\n\nBoost your browsing speed with intelligent optimizations.');
+    alert('Starting automated call... 📞\n\nThis feature will initiate an automated call process.');
+    // Here you can add actual automated call functionality
   });
   
   // Settings button
